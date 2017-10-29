@@ -25,7 +25,11 @@ function getAssets() {
 
         var origin = book.resolve(file);
         // Add a hash to avoid name collisions
-        var filename = hash(origin) + '-' + path.basename(origin);
+        //var filename = hash(origin) + '-' + path.basename(origin);
+        
+        // JL Edit: don't use the hash. Keep the original filename
+        var filename = path.basename(origin);
+       
         var output = path.resolve(tmpobj.name, filename);
 
         var content = fs.readFileSync(origin);
